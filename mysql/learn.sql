@@ -1,5 +1,9 @@
 # SQL
 
+## User
+CREATE USER 'admin'@'%' IDENTIFIED WITH caching_sha2_password BY 'admin';
+GRANT ALL PRIVILEGES ON *.* TO 'admin'@'%' WITH GRANT OPTION;
+
 ## SELECT
 
 ### Select all records from the Customers table:
@@ -45,3 +49,29 @@ SELECT * FROM Customers WHERE City LIKE 's%';
 
 ### WHERE Operators To specify multiple possible values for a column
 SELECT * FROM Customers WHERE City IN ('Paris','London');
+
+## Order by
+
+### Sort the products by price:
+SELECT * FROM Products ORDER BY Price DESC;
+
+### Sort string alphabetically
+SELECT * FROM Products ORDER BY ProductName;
+
+### Sort by several columns
+SELECT * FROM Customers ORDER BY Country ASC, CustomerName DESC;
+
+## And
+
+### Select all customers from Spain that starts with the letter 'G':
+SELECT * FROM Customers WHERE Country = 'Spain' AND CustomerName LIKE 'G%';
+
+### Select all Spanish customers that starts with either "G" or "R":
+SELECT * FROM Customers WHERE Country = 'Spain' AND (CustomerName LIKE 'G%' OR CustomerName LIKE 'R%');
+
+## Or
+
+### Select all customers from Germany or Spain:
+SELECT * FROM Customers WHERE Country = 'Germany' OR Country = 'Spain';
+
+## Not

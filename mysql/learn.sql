@@ -122,3 +122,197 @@ WHERE CustomerID = 1;
 UPDATE Customers
 SET ContactName='Juan'
 WHERE Country='Mexico';
+
+-- Delete
+
+-- Delete từ bảng `Customers` nếu `CustomerName` là `Alfreds Futterkiste`
+DELETE FROM Customers WHERE CustomerName='Alfreds Futterkiste';
+
+-- Xóa toàn bộ dữ liệu từ bảng `Customers`
+DELETE FROM Customers;
+
+-- Drop
+
+-- Xóa bảng `Customers`
+DROP TABLE Customers;
+
+-- limit
+
+-- Lấy 3 record đầu tiên là bảng `Customers`
+SELECT * FROM Customers LIMIT 3;
+
+-- Aggregate Functions
+
+-- MIN()
+-- Lấy `Price` nhỏ nhất từ bảng `Products`
+SELECT MIN(Price)
+FROM Products;
+
+-- MAX()
+-- Lấy `Price` lớn nhất từ bảng `Products`
+SELECT MAX(Price)
+FROM Products;
+
+-- Tạo Alias
+SELECT MIN(Price) AS SmallestPrice
+FROM Products;
+
+-- Lấy giá trị nhỏ nhất của `Price` theo từng `CategoryID` từ bảng Products
+SELECT MIN(Price) AS SmallestPrice, CategoryID
+FROM Products
+GROUP BY CategoryID;
+
+-- COUNT()
+
+-- Trả về số lượng các record trong bảng `Products`
+SELECT COUNT(*)
+FROM Products;
+
+-- Trả về số lượng các record trong bảng `Products` nếu Price lớn hơn 20
+SELECT COUNT(ProductID)
+FROM Products
+WHERE Price > 20;
+
+-- Trả về số lượng các `Price` không trùng lặp trong bảng `Products`
+SELECT COUNT(DISTINCT Price)
+FROM Products;
+
+-- Count số lượng record nhóm lại theo từng `CategoryID`
+SELECT COUNT(*) AS CountRecords, CategoryID
+FROM Products
+GROUP BY CategoryID;
+
+-- Tính tổng `Quantity` từ bảng `OrderDetails`
+SELECT SUM(Quantity)
+FROM OrderDetails;
+
+-- Tính tổng `Quantity` từ bảng `OrderDetails` nếu `ProductId` là 11
+SELECT SUM(Quantity)
+FROM OrderDetails
+WHERE ProductId = 11;
+
+-- Thêm Alias
+SELECT SUM(Quantity) AS total
+FROM OrderDetails;
+
+-- Nhóm lại theo `OrderID`, sau đó tính tổng `Quantity`
+SELECT OrderID, SUM(Quantity) AS Total
+FROM OrderDetails
+GROUP BY OrderID;
+
+-- Tính tổng `Quantity` từ bảng `OrderDetails` rồi nhân với 10
+SELECT SUM(Quantity * 10)
+FROM OrderDetails;
+
+-- Join bảng `OrderDetails` với `OrderDetails` rồi tính tổng của `Price` nhân với `Quantity`
+SELECT SUM(Price * Quantity)
+FROM OrderDetails
+LEFT JOIN Products ON OrderDetails.ProductID = Products.ProductID;
+
+-- AVG()
+
+-- Tính giá trung bình của `Price` từ bảng `Products`
+SELECT AVG(Price)
+FROM Products;
+
+-- Tính giá trung bình của `Price` từ bảng `Products` nếu `CategoryID` là 1
+SELECT AVG(Price)
+FROM Products
+WHERE CategoryID = 1;
+
+-- Lấy tất cả từ bảng `Products` nếu giá lớn hơn giá trung bình
+SELECT * FROM Products
+WHERE price > (SELECT AVG(price) FROM Products);
+
+-- Nhóm lại theo `CategoryID` rồi tính giá trung bình sau đó đặt alias là `AveragePrice`
+SELECT AVG(Price) AS AveragePrice, CategoryID
+FROM Products
+GROUP BY CategoryID;
+
+-- LIKE
+
+-- Lấy toàn bộ từ bảng `Customers` nếu `CustomerName` bắt đầu là `a`
+SELECT * FROM Customers
+WHERE CustomerName LIKE 'a%';
+
+-- Lấy toàn bộ dữ liệu từ bảng `Customers` nếu `city` thỏa mãn `L_nd__` (bắt đầu bằng L, ký tự thứ 3 và 4 là n và d)
+SELECT * FROM Customers
+WHERE city LIKE 'L_nd__';
+
+-- Lấy toàn bộ dữ liệu từ bảng `Customers` nếu `city` thỏa mãn `%L%` (chứa chữ L)
+SELECT * FROM Customers
+WHERE city LIKE '%L%';
+
+-- Lấy toàn bộ từ bảng `Customers` nếu `CustomerName` bắt đầu là `La`
+SELECT * FROM Customers
+WHERE CustomerName LIKE 'La%';
+
+-- Lấy toàn bộ từ bảng `Customers` nếu `CustomerName` kết thúc là `a`
+SELECT * FROM Customers
+WHERE CustomerName LIKE '%a';
+
+-- Lấy toàn bộ từ bảng `Customers` nếu `CustomerName` bắt đầu là `b` kết thúc là `s`
+SELECT * FROM Customers
+WHERE CustomerName LIKE 'b%s';
+
+-- Lấy toàn bộ từ bảng `Customers` nếu `CustomerName` bắt đầu là b hoặc s hoặc p
+SELECT * FROM Customers
+WHERE CustomerName REGEXP '^[bsp]';
+
+-- In
+
+-- Lấy tất cả từ bảng `Customers` nếu `Country` là một trong `Germany`, `France`, `UK`
+SELECT * FROM Customers
+WHERE Country IN ('Germany', 'France', 'UK');
+
+-- Lấy tất cả từ bảng `Customers` nếu `CustomerID` có trong bảng `Orders`
+SELECT * FROM Customers
+WHERE CustomerID IN (SELECT CustomerID FROM Orders);
+
+-- Lấy tất cả từ bảng `Customers` nếu `CustomerID` không có trong bảng `Orders`
+SELECT * FROM Customers
+WHERE CustomerID NOT IN (SELECT CustomerID FROM Orders);
+
+-- Between
+
+-- Lấy tất cả từ bảng `Products` nếu `Price` nằm trong khoảng 10 đến 20 và CategoryID là 1 hoặc 2 hoặc 3
+SELECT * FROM Products
+WHERE Price BETWEEN 10 AND 20
+AND CategoryID IN (1,2,3);
+
+-- Join
+-- (INNER) JOIN: Trả về các bản ghi có giá trị khớp nhau ở cả hai bảng.
+-- LEFT (OUTER) JOIN: Trả về tất cả các bản ghi từ bảng bên trái, và các bản ghi khớp từ bảng bên phải.
+-- RIGHT (OUTER) JOIN: Trả về tất cả các bản ghi từ bảng bên phải, và các bản ghi khớp từ bảng bên trái.
+-- FULL (OUTER) JOIN: Trả về tất cả các bản ghi khi có sự khớp từ bảng bên trái hoặc bảng bên phải.
+
+-- INNER JOIN
+
+-- JOIN 2 tables
+SELECT ProductID, ProductName, CategoryName
+FROM Products
+INNER JOIN Categories ON Products.CategoryID = Categories.CategoryID;
+
+-- JOIN 3 tables
+SELECT Orders.OrderID, Customers.CustomerName, Shippers.ShipperName
+FROM ((Orders
+INNER JOIN Customers ON Orders.CustomerID = Customers.CustomerID)
+INNER JOIN Shippers ON Orders.ShipperID = Shippers.ShipperID);
+
+-- Left join
+SELECT Customers.CustomerName, Orders.OrderID
+FROM Customers
+LEFT JOIN Orders ON Customers.CustomerID = Orders.CustomerID
+ORDER BY Customers.CustomerName;
+
+-- right join
+
+SELECT Customers.CustomerName, Orders.OrderID
+FROM Orders
+RIGHT JOIN Customers ON Customers.CustomerID = Orders.CustomerID
+ORDER BY Customers.CustomerName;
+
+SELECT Orders.OrderID, Employees.LastName, Employees.FirstName
+FROM Orders
+RIGHT JOIN Employees ON Orders.EmployeeID = Employees.EmployeeID
+ORDER BY Orders.OrderID;

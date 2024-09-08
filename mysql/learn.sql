@@ -4,91 +4,91 @@ GRANT ALL PRIVILEGES ON *.* TO 'admin'@'%' WITH GRANT OPTION;
 
 -- SELECT
 
--- Lấy toàn bộ dữ liệu từ tất cả các cột ở bảng `Customers`
+-- Lấy toàn bộ dữ liệu từ tất cả các cột ở bảng Customers
 SELECT * FROM Customers;
 
--- Lấy toàn bộ dữ liệu từ cột `Country` ở bảng `Customers`
+-- Lấy toàn bộ dữ liệu từ cột Country ở bảng Customers
 SELECT Country FROM Customers;
 
--- Lấy các dữ liệu không trùng lặp từ cột `Country` ở bảng `Customers`
+-- Lấy các dữ liệu không trùng lặp từ cột Country ở bảng Customers
 SELECT DISTINCT Country FROM Customers;
 
--- Lấy số lượng các dữ liệu không trùng lặp từ cột `Country` ở bảng `Customers`
+-- Lấy số lượng các dữ liệu không trùng lặp từ cột Country ở bảng Customers
 SELECT COUNT(DISTINCT Country) FROM Customers;
 
 -- WHERE
 
--- Lấy toàn bộ dữ liệu từ tất cả các cột ở bảng `Customers` nếu cột `Country` là `Mexico`
+-- Lấy toàn bộ dữ liệu từ tất cả các cột ở bảng Customers nếu cột Country là Mexico
 SELECT * FROM Customers WHERE Country = 'Mexico';
 
--- Lấy toàn bộ dữ liệu từ tất cả các cột ở bảng `Products` nếu cột `Price` là `18`
+-- Lấy toàn bộ dữ liệu từ tất cả các cột ở bảng Products nếu cột Price là 18
 SELECT * FROM Products WHERE Price = 18;
 
--- Lấy toàn bộ dữ liệu từ tất cả các cột ở bảng `Products` nếu cột `Price` lớn hơn `30`
+-- Lấy toàn bộ dữ liệu từ tất cả các cột ở bảng Products nếu cột Price lớn hơn 30
 SELECT * FROM Products WHERE Price > 30;
 
--- Lấy toàn bộ dữ liệu từ tất cả các cột ở bảng `Products` nếu cột `Price` nhỏ hơn `30`
+-- Lấy toàn bộ dữ liệu từ tất cả các cột ở bảng Products nếu cột Price nhỏ hơn 30
 SELECT * FROM Products WHERE Price < 30;
 
--- Lấy toàn bộ dữ liệu từ tất cả các cột ở bảng `Products` nếu cột `Price` lớn hơn hoặc bằng `30`
+-- Lấy toàn bộ dữ liệu từ tất cả các cột ở bảng Products nếu cột Price lớn hơn hoặc bằng 30
 SELECT * FROM Products WHERE Price >= 30;
 
--- Lấy toàn bộ dữ liệu từ tất cả các cột ở bảng `Products` nếu cột `Price` nhỏ hơn hoặc bằng `30`
+-- Lấy toàn bộ dữ liệu từ tất cả các cột ở bảng Products nếu cột Price nhỏ hơn hoặc bằng 30
 SELECT * FROM Products WHERE Price <= 30;
 
--- Lấy toàn bộ dữ liệu từ tất cả các cột ở bảng `Products` nếu cột `Price` khác `18`
+-- Lấy toàn bộ dữ liệu từ tất cả các cột ở bảng Products nếu cột Price khác 18
 SELECT * FROM Products WHERE Price <> 18;
 
--- Lấy toàn bộ dữ liệu từ tất cả các cột ở bảng `Products` nếu cột `Price` nằm trong khoảng 50 đến 60
+-- Lấy toàn bộ dữ liệu từ tất cả các cột ở bảng Products nếu cột Price nằm trong khoảng 50 đến 60
 SELECT * FROM Products WHERE Price BETWEEN 50 AND 60;
 
--- Lấy toàn bộ dữ liệu từ tất cả các cột ở bảng `Customers` nếu cột `City` bắt đầu bằng chữ `s`
+-- Lấy toàn bộ dữ liệu từ tất cả các cột ở bảng Customers nếu cột City bắt đầu bằng chữ s
 SELECT * FROM Customers WHERE City LIKE 's%';
 
--- Lấy toàn bộ dữ liệu từ tất cả các cột ở bảng `Customers` nếu cột `City` là `Paris` hoặc `London`
+-- Lấy toàn bộ dữ liệu từ tất cả các cột ở bảng Customers nếu cột City là Paris hoặc London
 SELECT * FROM Customers WHERE City IN ('Paris', 'London');
 
 -- Order by
 
--- Lấy toàn bộ dữ liệu từ tất cả các cột ở bảng `Products` sắp xếp theo `Price` giảm dần
+-- Lấy toàn bộ dữ liệu từ tất cả các cột ở bảng Products sắp xếp theo Price giảm dần
 SELECT * FROM Products ORDER BY Price DESC;
 
--- Lấy toàn bộ dữ liệu từ tất cả các cột ở bảng `Products` sắp xếp theo `ProductName` tăng dần theo Alphabetically
+-- Lấy toàn bộ dữ liệu từ tất cả các cột ở bảng Products sắp xếp theo ProductName tăng dần theo Alphabetically
 SELECT * FROM Products ORDER BY ProductName;
 
--- Lấy toàn bộ dữ liệu từ tất cả các cột ở bảng `Customers` sắp xếp `Country` tăng dần, `CustomerName` giảm dần
+-- Lấy toàn bộ dữ liệu từ tất cả các cột ở bảng Customers sắp xếp Country tăng dần, CustomerName giảm dần
 SELECT * FROM Customers ORDER BY Country ASC, CustomerName DESC;
 
 -- And
 
--- Lấy toàn bộ dữ liệu từ tất cả các cột ở bảng `Customers` nếu `Country` là `Spain` và `CustomerName` bắt đầu là chữ `G`
+-- Lấy toàn bộ dữ liệu từ tất cả các cột ở bảng Customers nếu Country là Spain và CustomerName bắt đầu là chữ G
 SELECT * FROM Customers WHERE Country = 'Spain' AND CustomerName LIKE 'G%';
 
--- Lấy toàn bộ dữ liệu từ tất cả các cột ở bảng `Customers` nếu `Country` là `Spain` và `CustomerName` bắt đầu là chữ `G` hoặc bắt đầu là chữ `R`
+-- Lấy toàn bộ dữ liệu từ tất cả các cột ở bảng Customers nếu Country là Spain và CustomerName bắt đầu là chữ G hoặc bắt đầu là chữ R
 SELECT * FROM Customers WHERE Country = 'Spain' AND (CustomerName LIKE 'G%' OR CustomerName LIKE 'R%');
 
 -- Or
 
--- Lấy toàn bộ dữ liệu từ tất cả các cột ở bảng `Customers` nếu `Country` là `Germany` hoặc `Spain`
+-- Lấy toàn bộ dữ liệu từ tất cả các cột ở bảng Customers nếu Country là Germany hoặc Spain
 SELECT * FROM Customers WHERE Country = 'Germany' OR Country = 'Spain';
 
 -- NOT
 
--- Lấy toàn bộ dữ liệu từ tất cả các cột ở bảng `Customers` nếu `Country` không phải là `Spain`
+-- Lấy toàn bộ dữ liệu từ tất cả các cột ở bảng Customers nếu Country không phải là Spain
 SELECT * FROM Customers WHERE NOT Country = 'Spain';
 
--- Lấy toàn bộ dữ liệu từ tất cả các cột ở bảng `Customers` nếu `CustomerName` không bắt đầu từ `A`
+-- Lấy toàn bộ dữ liệu từ tất cả các cột ở bảng Customers nếu CustomerName không bắt đầu từ A
 SELECT * FROM Customers WHERE CustomerName NOT LIKE 'A%';
 
--- Lấy toàn bộ dữ liệu từ tất cả các cột ở bảng `Customers` nếu `CustomerID` không nằm trong khoảng từ 10 đến 60
+-- Lấy toàn bộ dữ liệu từ tất cả các cột ở bảng Customers nếu CustomerID không nằm trong khoảng từ 10 đến 60
 SELECT * FROM Customers WHERE CustomerID NOT BETWEEN 10 AND 60;
 
--- Lấy toàn bộ dữ liệu từ tất cả các cột ở bảng `Customers` nếu `City` không phải là `Paris` và `London`
+-- Lấy toàn bộ dữ liệu từ tất cả các cột ở bảng Customers nếu City không phải là Paris và London
 SELECT * FROM Customers WHERE City NOT IN ('Paris', 'London');
 
 -- Insert
 
--- Đẩy dữ liệu vào bảng `Customers`
+-- Đẩy dữ liệu vào bảng Customers
 INSERT INTO Customers (CustomerName, ContactName, Address, City, PostalCode, Country)
 VALUES ('Cardinal', 'Tom B. Erichsen', 'Skagen 21', 'Stavanger', '4006', 'Norway');
 
@@ -101,55 +101,55 @@ VALUES
 
 -- NULL
 
--- Lấy dữ liệu từ các cột `CustomerName`, `ContactName`, `Address` ở bảng `Customers` nếu cột `Customers` là `null`
+-- Lấy dữ liệu từ các cột CustomerName, ContactName, Address ở bảng Customers nếu cột Customers là null
 SELECT CustomerName, ContactName, Address
 FROM Customers
 WHERE Address IS NULL;
 
--- Lấy dữ liệu từ các cột `CustomerName`, `ContactName`, `Address` ở bảng `Customers` nếu cột `Customers` không phải là `null`
+-- Lấy dữ liệu từ các cột CustomerName, ContactName, Address ở bảng Customers nếu cột Customers không phải là null
 SELECT CustomerName, ContactName, Address
 FROM Customers
 WHERE Address IS NOT NULL;
 
 -- Update
 
--- Update bảng `Customers` cập nhật `ContactName` và `City` từ `CustomerID` là 1
+-- Update bảng Customers cập nhật ContactName và City từ CustomerID là 1
 UPDATE Customers
 SET ContactName = 'Alfred Schmidt', City= 'Frankfurt'
 WHERE CustomerID = 1;
 
--- Update bảng `Customers` cập nhật ContactName từ tất cả các record có `Country` là `Mexico`
+-- Update bảng Customers cập nhật ContactName từ tất cả các record có Country là Mexico
 UPDATE Customers
 SET ContactName='Juan'
 WHERE Country='Mexico';
 
 -- Delete
 
--- Delete từ bảng `Customers` nếu `CustomerName` là `Alfreds Futterkiste`
+-- Delete từ bảng Customers nếu CustomerName là Alfreds Futterkiste
 DELETE FROM Customers WHERE CustomerName='Alfreds Futterkiste';
 
--- Xóa toàn bộ dữ liệu từ bảng `Customers`
+-- Xóa toàn bộ dữ liệu từ bảng Customers
 DELETE FROM Customers;
 
 -- Drop
 
--- Xóa bảng `Customers`
+-- Xóa bảng Customers
 DROP TABLE Customers;
 
 -- limit
 
--- Lấy 3 record đầu tiên là bảng `Customers`
+-- Lấy 3 record đầu tiên là bảng Customers
 SELECT * FROM Customers LIMIT 3;
 
 -- Aggregate Functions
 
 -- MIN()
--- Lấy `Price` nhỏ nhất từ bảng `Products`
+-- Lấy Price nhỏ nhất từ bảng Products
 SELECT MIN(Price)
 FROM Products;
 
 -- MAX()
--- Lấy `Price` lớn nhất từ bảng `Products`
+-- Lấy Price lớn nhất từ bảng Products
 SELECT MAX(Price)
 FROM Products;
 
@@ -157,36 +157,36 @@ FROM Products;
 SELECT MIN(Price) AS SmallestPrice
 FROM Products;
 
--- Lấy giá trị nhỏ nhất của `Price` theo từng `CategoryID` từ bảng Products
+-- Lấy giá trị nhỏ nhất của Price theo từng CategoryID từ bảng Products
 SELECT MIN(Price) AS SmallestPrice, CategoryID
 FROM Products
 GROUP BY CategoryID;
 
 -- COUNT()
 
--- Trả về số lượng các record trong bảng `Products`
+-- Trả về số lượng các record trong bảng Products
 SELECT COUNT(*)
 FROM Products;
 
--- Trả về số lượng các record trong bảng `Products` nếu Price lớn hơn 20
+-- Trả về số lượng các record trong bảng Products nếu Price lớn hơn 20
 SELECT COUNT(ProductID)
 FROM Products
 WHERE Price > 20;
 
--- Trả về số lượng các `Price` không trùng lặp trong bảng `Products`
+-- Trả về số lượng các Price không trùng lặp trong bảng Products
 SELECT COUNT(DISTINCT Price)
 FROM Products;
 
--- Count số lượng record nhóm lại theo từng `CategoryID`
+-- Count số lượng record nhóm lại theo từng CategoryID
 SELECT COUNT(*) AS CountRecords, CategoryID
 FROM Products
 GROUP BY CategoryID;
 
--- Tính tổng `Quantity` từ bảng `OrderDetails`
+-- Tính tổng Quantity từ bảng OrderDetails
 SELECT SUM(Quantity)
 FROM OrderDetails;
 
--- Tính tổng `Quantity` từ bảng `OrderDetails` nếu `ProductId` là 11
+-- Tính tổng Quantity từ bảng OrderDetails nếu ProductId là 11
 SELECT SUM(Quantity)
 FROM OrderDetails
 WHERE ProductId = 11;
@@ -195,87 +195,87 @@ WHERE ProductId = 11;
 SELECT SUM(Quantity) AS total
 FROM OrderDetails;
 
--- Nhóm lại theo `OrderID`, sau đó tính tổng `Quantity`
+-- Nhóm lại theo OrderID, sau đó tính tổng Quantity
 SELECT OrderID, SUM(Quantity) AS Total
 FROM OrderDetails
 GROUP BY OrderID;
 
--- Tính tổng `Quantity` từ bảng `OrderDetails` rồi nhân với 10
+-- Tính tổng Quantity từ bảng OrderDetails rồi nhân với 10
 SELECT SUM(Quantity * 10)
 FROM OrderDetails;
 
--- Join bảng `OrderDetails` với `OrderDetails` rồi tính tổng của `Price` nhân với `Quantity`
+-- Join bảng OrderDetails với OrderDetails rồi tính tổng của Price nhân với Quantity
 SELECT SUM(Price * Quantity)
 FROM OrderDetails
 LEFT JOIN Products ON OrderDetails.ProductID = Products.ProductID;
 
 -- AVG()
 
--- Tính giá trung bình của `Price` từ bảng `Products`
+-- Tính giá trung bình của Price từ bảng Products
 SELECT AVG(Price)
 FROM Products;
 
--- Tính giá trung bình của `Price` từ bảng `Products` nếu `CategoryID` là 1
+-- Tính giá trung bình của Price từ bảng Products nếu CategoryID là 1
 SELECT AVG(Price)
 FROM Products
 WHERE CategoryID = 1;
 
--- Lấy tất cả từ bảng `Products` nếu giá lớn hơn giá trung bình
+-- Lấy tất cả từ bảng Products nếu giá lớn hơn giá trung bình
 SELECT * FROM Products
 WHERE price > (SELECT AVG(price) FROM Products);
 
--- Nhóm lại theo `CategoryID` rồi tính giá trung bình sau đó đặt alias là `AveragePrice`
+-- Nhóm lại theo CategoryID rồi tính giá trung bình sau đó đặt alias là AveragePrice
 SELECT AVG(Price) AS AveragePrice, CategoryID
 FROM Products
 GROUP BY CategoryID;
 
 -- LIKE
 
--- Lấy toàn bộ từ bảng `Customers` nếu `CustomerName` bắt đầu là `a`
+-- Lấy toàn bộ từ bảng Customers nếu CustomerName bắt đầu là a
 SELECT * FROM Customers
 WHERE CustomerName LIKE 'a%';
 
--- Lấy toàn bộ dữ liệu từ bảng `Customers` nếu `city` thỏa mãn `L_nd__` (bắt đầu bằng L, ký tự thứ 3 và 4 là n và d)
+-- Lấy toàn bộ dữ liệu từ bảng Customers nếu city thỏa mãn L_nd__ (bắt đầu bằng L, ký tự thứ 3 và 4 là n và d)
 SELECT * FROM Customers
 WHERE city LIKE 'L_nd__';
 
--- Lấy toàn bộ dữ liệu từ bảng `Customers` nếu `city` thỏa mãn `%L%` (chứa chữ L)
+-- Lấy toàn bộ dữ liệu từ bảng Customers nếu city thỏa mãn %L% (chứa chữ L)
 SELECT * FROM Customers
 WHERE city LIKE '%L%';
 
--- Lấy toàn bộ từ bảng `Customers` nếu `CustomerName` bắt đầu là `La`
+-- Lấy toàn bộ từ bảng Customers nếu CustomerName bắt đầu là La
 SELECT * FROM Customers
 WHERE CustomerName LIKE 'La%';
 
--- Lấy toàn bộ từ bảng `Customers` nếu `CustomerName` kết thúc là `a`
+-- Lấy toàn bộ từ bảng Customers nếu CustomerName kết thúc là a
 SELECT * FROM Customers
 WHERE CustomerName LIKE '%a';
 
--- Lấy toàn bộ từ bảng `Customers` nếu `CustomerName` bắt đầu là `b` kết thúc là `s`
+-- Lấy toàn bộ từ bảng Customers nếu CustomerName bắt đầu là b kết thúc là s
 SELECT * FROM Customers
 WHERE CustomerName LIKE 'b%s';
 
--- Lấy toàn bộ từ bảng `Customers` nếu `CustomerName` bắt đầu là b hoặc s hoặc p
+-- Lấy toàn bộ từ bảng Customers nếu CustomerName bắt đầu là b hoặc s hoặc p
 SELECT * FROM Customers
 WHERE CustomerName REGEXP '^[bsp]';
 
 -- In
 
--- Lấy tất cả từ bảng `Customers` nếu `Country` là một trong `Germany`, `France`, `UK`
+-- Lấy tất cả từ bảng Customers nếu Country là một trong Germany, France, UK
 SELECT * FROM Customers
 WHERE Country IN ('Germany', 'France', 'UK');
 
--- Lấy tất cả từ bảng `Customers` nếu `CustomerID` có trong bảng `Orders`
+-- Lấy tất cả từ bảng Customers nếu CustomerID có trong bảng Orders
 SELECT * FROM Customers
 WHERE CustomerID IN (SELECT CustomerID FROM Orders);
 
--- Lấy tất cả từ bảng `Customers` nếu `CustomerID` không có trong bảng `Orders`
+-- Lấy tất cả từ bảng Customers nếu CustomerID không có trong bảng Orders
 SELECT * FROM Customers
 WHERE CustomerID NOT IN (SELECT CustomerID FROM Orders);
 
 -- Between
 
--- Lấy tất cả từ bảng `Products` nếu `Price` nằm trong khoảng 10 đến 20 và CategoryID là 1 hoặc 2 hoặc 3
+-- Lấy tất cả từ bảng Products nếu Price nằm trong khoảng 10 đến 20 và CategoryID là 1 hoặc 2 hoặc 3
 SELECT * FROM Products
 WHERE Price BETWEEN 10 AND 20
 AND CategoryID IN (1,2,3);
@@ -306,7 +306,6 @@ LEFT JOIN Orders ON Customers.CustomerID = Orders.CustomerID
 ORDER BY Customers.CustomerName;
 
 -- right join
-
 SELECT Customers.CustomerName, Orders.OrderID
 FROM Orders
 RIGHT JOIN Customers ON Customers.CustomerID = Orders.CustomerID
@@ -316,3 +315,104 @@ SELECT Orders.OrderID, Employees.LastName, Employees.FirstName
 FROM Orders
 RIGHT JOIN Employees ON Orders.EmployeeID = Employees.EmployeeID
 ORDER BY Orders.OrderID;
+
+-- full join
+SELECT Customers.CustomerName, Orders.OrderID
+FROM Customers
+LEFT JOIN Orders ON Customers.CustomerID = Orders.CustomerID
+UNION
+SELECT Customers.CustomerName, Orders.OrderID
+FROM Orders
+LEFT JOIN Customers ON Customers.CustomerID = Orders.CustomerID
+ORDER BY CustomerName;
+
+-- self join
+SELECT A.CustomerName AS CustomerName1, B.CustomerName AS CustomerName2, A.City
+FROM Customers A, Customers B
+WHERE A.CustomerID <> B.CustomerID
+AND A.City = B.City
+ORDER BY A.City;
+
+-- union
+SELECT City FROM Customers
+UNION
+SELECT City FROM Suppliers
+ORDER BY City;
+
+-- union all
+SELECT City FROM Customers
+UNION ALL
+SELECT City FROM Suppliers
+ORDER BY City;
+
+-- Group By
+SELECT COUNT(CustomerID), Country
+FROM Customers
+GROUP BY Country;
+
+-- Group By Country Order by Count(CustomerID)
+SELECT COUNT(CustomerID), Country
+FROM Customers
+GROUP BY Country
+ORDER BY COUNT(CustomerID) DESC;
+
+-- Having
+SELECT COUNT(CustomerID), Country
+FROM Customers
+GROUP BY Country
+HAVING COUNT(CustomerID) > 5;
+
+-- Lấy họ của nhân viên (Davolio hoặc Fuller) và đếm số lượng đơn hàng mà mỗi nhân viên đã xử lý, chỉ hiển thị nhân viên nào có hơn 25 đơn hàng.
+SELECT Employees.LastName, COUNT(Orders.OrderID) AS NumberOfOrders
+FROM Orders
+INNER JOIN Employees ON Orders.EmployeeID = Employees.EmployeeID
+WHERE LastName = 'Davolio' OR LastName = 'Fuller'
+GROUP BY LastName
+HAVING COUNT(Orders.OrderID) > 25;
+
+-- Exits
+SELECT SupplierName
+FROM Suppliers
+WHERE EXISTS (SELECT ProductName FROM Products WHERE Products.SupplierID = Suppliers.supplierID AND Price < 20);
+
+-- Any
+SELECT ProductName
+FROM Products
+WHERE ProductID = ANY
+  (SELECT ProductID
+  FROM OrderDetails
+  WHERE Quantity = 10);
+
+SELECT ProductName
+FROM Products
+WHERE ProductID = ANY
+  (SELECT ProductID
+  FROM OrderDetails
+  WHERE Quantity > 99);
+
+SELECT ProductName
+FROM Products
+WHERE ProductID = ANY
+  (SELECT ProductID
+  FROM OrderDetails
+  WHERE Quantity > 1000);
+
+SELECT ALL ProductName
+FROM Products
+WHERE TRUE;
+
+SELECT ProductName
+FROM Products
+WHERE ProductID = ALL
+  (SELECT ProductID
+  FROM OrderDetails
+  WHERE Quantity = 10);
+
+-- case
+SELECT OrderID, Quantity,
+CASE
+    WHEN Quantity > 30 THEN 'The quantity is greater than 30'
+    WHEN Quantity = 30 THEN 'The quantity is 30'
+    ELSE 'The quantity is under 30'
+END AS QuantityText
+FROM OrderDetails;

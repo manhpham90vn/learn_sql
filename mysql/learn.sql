@@ -4,21 +4,21 @@ GRANT ALL PRIVILEGES ON *.* TO 'admin'@'%' WITH GRANT OPTION;
 
 -- SELECT
 
--- Lấy toàn bộ dữ liệu từ tất cả các cột ở bảng customers
+-- Lấy tất cả dữ liệu từ bảng customers
 SELECT * FROM customers;
 
--- Lấy toàn bộ dữ liệu từ cột country ở bảng customers
+-- Chỉ lấy cột country từ bảng customers
 SELECT country FROM customers;
 
--- Lấy các dữ liệu không trùng lặp từ cột country ở bảng customers
+-- Chỉ lấy cột country nhưng không trùng nhau từ bảng customers
 SELECT DISTINCT country FROM customers;
 
--- Lấy số lượng các dữ liệu không trùng lặp từ cột country ở bảng customers
+-- Lấy count cột country nhưng không trùng nhau từ bảng customers
 SELECT COUNT(DISTINCT country) FROM customers;
 
 -- WHERE
 
--- Lấy toàn bộ dữ liệu từ tất cả các cột ở bảng customers nếu cột country là Mexico
+-- Lấy tất cả dữ liệu từ bảng customers nếu country là Mexico
 SELECT * FROM customers WHERE country = 'Mexico';
 
 -- Lấy toàn bộ dữ liệu từ tất cả các cột ở bảng products nếu cột Price là 18
